@@ -13,10 +13,8 @@ export async function getTrendingMovie(req, res) {
 export async function getNowPlayingMovies(req, res) {
 	try {
 		const data = await fetchFromTMDB("https://api.themoviedb.org/3/movie/now_playing");
-
 		res.json({ success: true, content: data.results });
 	} catch (error) {
-		console.log(error);
 		res.status(500).json({ success: false, message: "Internal Server Error" });
 	}
 }
@@ -73,6 +71,16 @@ export async function getMoviesByCategory(req, res) {
 	const { category } = req.params;
 	try {
 		const data = await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`);
+		res.status(200).json({ success: true, content: data.results });
+	} catch (error) {
+		res.status(500).json({ success: false, message: "Internal Server Error" });
+	}
+}
+
+
+export async function getUpComingMovies(req, res) {
+	try {
+		const data = await fetchFromTMDB("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1")
 		res.status(200).json({ success: true, content: data.results });
 	} catch (error) {
 		res.status(500).json({ success: false, message: "Internal Server Error" });

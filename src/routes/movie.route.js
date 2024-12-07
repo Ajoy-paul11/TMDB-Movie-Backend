@@ -6,13 +6,15 @@ import {
 	getSimilarMovies,
 	getTrendingMovie,
 	getNowPlayingMovies,
-	getRecommendationMovies
+	getRecommendationMovies,
+	getUpComingMovies
 } from "../controllers/movie.controller.js";
 
 const router = express.Router();
 
 router.get("/trending", getTrendingMovie);
 router.get("/nowplaying", getNowPlayingMovies);
+router.get("/upcoming", getUpComingMovies);
 router.get("/:id/trailer", getMovieTrailer);
 router.get("/:id/details", getMovieDetails);
 router.get("/:id/similar", getSimilarMovies);
