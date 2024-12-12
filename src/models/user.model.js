@@ -40,7 +40,7 @@ userSchema.methods.checkPassword = async function (password) {
 userSchema.methods.generateToken = function () {
     return jwt.sign(
         { _id: this._id },
-        process.env.TOKEN_SECRET,
+        process.env.JWT_SECRET,
         { expiresIn: "1d" }
     )
 }
