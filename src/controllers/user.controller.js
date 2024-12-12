@@ -13,7 +13,7 @@ const generateToken = async (id) => {
 
         return { token }
     } catch (error) {
-        return next(new ApiError(501, error.message))
+        throw new ApiError(501, error.message)
     }
 }
 
