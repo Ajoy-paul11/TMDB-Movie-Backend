@@ -24,7 +24,7 @@ const registerUser = AsyncHandler(async (req, res, next) => {
         return next(error)
     }
 
-    const checkUser = await User.findOne({ email }).select("-password")
+    const checkUser = await User.findOne({ email })
     if (checkUser) {
         const error = new ApiError(404, "User already exist!")
         return next(error)
