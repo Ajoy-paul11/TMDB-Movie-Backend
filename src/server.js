@@ -23,7 +23,7 @@ connectDB()
 app.get("/", (req, res) => {
     res.send(`<div>
         <h1 style=" text-align: center; margin-bottom: 16px ">Hello from Movie Backend</h1>
-        <a style=" text-align: center;" href="https://github.com/Ajoy-paul11/TMDB-Movie-Backend" target="_blank" >GitHub Repo</a>
+        <h3 style=" text-align: center;"><a  href="https://github.com/Ajoy-paul11/TMDB-Movie-Backend" target="_blank" >GitHub Repo</a><h3>
     </div>
     `);
 });
